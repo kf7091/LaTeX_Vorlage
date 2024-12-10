@@ -1,0 +1,35 @@
+\AddToShipoutPictureBG*{%
+  \AtPageUpperLeft{%
+    \raisebox{-1.3\height}{%
+      \includegraphics[width=10cm]{images/MCI_Logo.pdf}%
+    }
+  }
+}
+
+\begin{titlepage}
+    \centering
+    {\scshape\LARGE Bachelor: Medizin- Gesundheits- und Sporttechnologie \par}
+    \vspace{1cm}
+    {\scshape\Large \semester. Semester\par}
+    \vspace{1.5cm}
+    {\huge\bfseries \titel \par}
+    \vspace{0.5cm}
+    \vspace{2cm}
+    {\Large\bfseries Lehrveranstaltungsleiter: \professor \par}
+    \vfill
+    {\Large Gruppe: \gruppe\par}
+    \vfill
+    {\Large Verfasser: \verfasser \par}
+    \vspace{1cm}
+    {\Large \datum\par}
+\end{titlepage}
+
+\newpage
+\pagenumbering{Roman}
+\setcounter{page}{\numexpr\value{page}+1} % im Leitfaden Inhaltsverzeichnis beginnt mit 2
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+\tableofcontents
+\addtocontents{toc}{\protect\setcounter{tocdepth}{3}}
+
+\newpage
+\pagenumbering{arabic}
