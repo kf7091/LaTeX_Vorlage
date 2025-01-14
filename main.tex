@@ -1,4 +1,6 @@
-\input{definitions.tex}
+\documentclass[a4paper, ngerman, oneside, 10pt]{article}
+
+\input{definitions/packages.tex}
 
 \def\semester{3}
 \def\professor{Dr. Gerda Strutzenberger \& Lukas Neururer \& Dott. Mag. Yunus Schmirander}
@@ -10,7 +12,7 @@
 
 
 \begin{document}
-\input{deckblatt.tex}
+\input{definitions/deckblatt.tex}
 
 \section{Einleitung}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquet sapien eu quam blandit, vel auctor eros tincidunt. Proin lobortis, mi et efficitur ultrices, eros lorem ornare justo, sit amet efficitur nibh tortor id purus. Nam semper pharetra quam ullamcorper pretium. Integer non consectetur leo. Nulla viverra dolor vel dolor elementum egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut pulvinar maximus interdum. Cras faucibus lorem a nisl porta dapibus. Suspendisse volutpat iaculis magna ut placerat. Praesent sed pellentesque ex. Donec semper pharetra sollicitudin. Etiam lacinia elit eu neque imperdiet tristique at et diam. Nullam auctor, erat quis volutpat congue, velit ex finibus est, at lacinia tortor massa non nibh.\\
@@ -140,14 +142,20 @@ $$a^{2}+b^{2}=c^{2}$$
 	Quisque interdum efficitur nibh at condimentum. Morbi eget quam blandit, suscipit ipsum id, accumsan arcu. Nam sollicitudin nisl sit amet elit elementum, ac volutpat neque sollicitudin. Sed nec augue enim. Phasellus vel sodales urna. Etiam mattis ultrices metus, eget tincidunt massa rhoncus quis. Vivamus vitae ligula euismod, interdum neque eget, aliquam felis. Duis pharetra consectetur hendrerit. Quisque enim est, volutpat et turpis consectetur, lobortis commodo justo. Integer ipsum ante, commodo sit amet neque ut, elementum vulputate ligula. Sed at massa cursus, pharetra sem sit amet, sagittis nibh. Vivamus orci ex, facilisis porttitor sem eu, commodo eleifend ligula.
 \end{multicols}
 
-\tableofcontents
-\listoffigures
-\listoftables
-
 \section{Referenzieren}\label{sec:ref}
 Test \cite{Kleiner.2022}
 
+\ac{DFFT}	% Akürzung wird ausgeschrieben beim ersten Mal
+\ac{DFFT}	% Akürzung wird nicht ausgeschrieben beim zweiten Mal
+\acf{DFFT}	% Akürzung wird ausgeschrieben
+\acs{DFFT}	% Akürzung wird nicht ausgeschrieben
 
+
+%
+\listoffigures
+\listoftables
 \printbibliography
+
+\include{definitions/acronyms.tex}
 
 \end{document}
