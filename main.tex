@@ -152,10 +152,11 @@ Test \cite{Kleiner.2022}
 
 
 %
+\clearpage
+\pagenumbering{Roman}
+\setcounter{page}{\numexpr\value{tocpagenumber}+1}
 \listoffigures
 \listoftables
 \printbibliography
-
 \include{definitions/acronyms.tex}
-
 \end{document}
