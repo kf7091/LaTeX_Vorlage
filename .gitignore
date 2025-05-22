@@ -14,5 +14,6 @@
 *.synctex.gz
 *.synctex(busy)
 *.toc
+*.vscode
 
 main.pdf
