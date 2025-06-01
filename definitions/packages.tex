@@ -32,6 +32,8 @@
 \usepackage{fancyhdr}                           % um Kopf- und Fußzeilen zu erstellen
     \pagestyle{fancy}                               % um die Kopf- und Fußzeilen zu aktivieren
 \usepackage{tikz}                               % um Grafiken zu erstellen
+    \usetikzlibrary{external}                       % um Tikz Grafiken zu externisieren, damit sie nicht bei jedem Kompilieren neu erstellt werden
+    \tikzexternalize[prefix=images/tikz/]                  % Pfad, in dem die externen Tikz Grafiken gespeichert werden
 \usepackage{circuitikz}                         % um Schaltpläne zu erstellen
     \usetikzlibrary{arrows}                         % um Pfeile in Tikz zu erstellen
 \usepackage{pgfplots}                           % um Plots zu erstellen

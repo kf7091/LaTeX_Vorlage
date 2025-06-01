@@ -1,6 +1,8 @@
 *.acn
 *.aux
+*.auxlock
 *.bbl
+*.bbl-SAVE-ERROR
 *.bcf
 *.blg
 *.fdb_latexmk
