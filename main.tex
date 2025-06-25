@@ -3,10 +3,11 @@
 
 \def\semester{3}
 \def\professor{Dr. Gerda Strutzenberger \& Lukas Neururer \& Dott. Mag. Yunus Schmirander}
-\def\gruppe{BA-MGST-23-4D}
+\def\gruppe{BA-\acs*{mgst}-23-4D}
 \def\datum{\today}
 \def\verfasser{Dominic Vogt \& Florian Just \& Fabian Kocher \& Lukas Höpflinger}
-\def\titel{Laborbericht 2 - Biosignalverarbeitung}
+\def\titel{Biosignalverarbeitung Labor}
+\def\subtitel{Signalverarbeitung von \acs*{ekg}-Signalen}
 
 
 
@@ -104,7 +105,7 @@ etc.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{images/MCI_Logo.pdf}
-	\caption{Das MCI Logo}
+	\caption[MCI-Logo]{Das ist das MCI Logo}
 	\label{fig:mci_logo}
 \end{figure}
 
@@ -165,7 +166,7 @@ etc.
 			\begin{tabular}[c]{@{}l@{}}Reduktion teurer\\ Krankenhausaufenthalte,\\ langfristige Versorgungseffizienz\end{tabular}
 		\end{tabular}%
 	}
-	\caption{Stakeholder-Perspektiven beim Einsatz eines Sturzerkennungs-Wearables}
+	\caption[Stakeholdertabelle]{Stakeholder-Perspektiven beim Einsatz eines Sturzerkennungs-Wearables}
 	\label{tab:stakeholder}
 \end{table}
 
@@ -459,6 +460,7 @@ fortgeschritten
 Gleichung \ref{equ:Pytagoras} ist auf Seite \pageref{equ:Pytagoras}. Jetzt sind wir auf Seite \pageref{sec:ref}\\
 \href{mailto:mail@mail.mail}{Email@Email.com}\\
 Test \cite{Kleiner.2022}\\
+Alternativ auch \autoref{equ:Pytagoras} auf \autopageref{equ:Pytagoras}.
 \href{https://www.mci.edu/de/}{MCI}\\
 \href{mailto:jkdshf@dlsijkj.at}{E-mail}
 
@@ -475,7 +477,7 @@ Test \cite{Kleiner.2022}\\
 	\item \acp{led}		% Pluralform der Abkürzung
 	\item \aclp{led}	% Pluralform der Langform
 	\item \acfp{led}	% Pluralform der Langform mit (Abkürzung)
-	\item \acp{rd}		% selbst definierte Pluralfoem
+	\item \acp{ekg}		% selbst definierte Pluralform
 \end{itemize}
 
 
@@ -495,5 +497,5 @@ Test \cite{Kleiner.2022}\\
 \printbibliography[title={Literaturverzeichnis}]
 \addcontentsline{toc}{section}{Literaturverzeichnis}
 \newpage
-\include{definitions/acronyms.tex}
+\input{definitions/acronyms.tex}
 \end{document}
