@@ -9,11 +9,11 @@
 \def\titel{Biosignalverarbeitung Labor}
 \def\subtitel{Signalverarbeitung von \acs*{ekg}-Signalen}
 
-
+\def\figwidth{0.5\textwidth} % Standard-Breite für Abbildungen
 
 \begin{document}
 \input{definitions/deckblatt.tex}
-
+\pagestyle{fancy} % um die Kopf- und Fußzeilen zu aktivieren
 \section{Einleitung}
 Dieses Dokument stellt eine Vorlage zur Erstellung von Laborberichten in \LaTeX für den Studiengang Mechatronik dar. Achten Sie darauf, dass Sie die jeweils aktuellste Version verwenden. Richtlinien können sich von Jahr zu Jahr "andern.
 
@@ -104,14 +104,26 @@ etc.
 \subsubsection{Bilder}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{images/MCI_Logo.pdf}
+	\includegraphics[width=\figwidth]{images/MCI_Logo.pdf}
 	\caption[MCI-Logo]{Das ist das MCI Logo}
 	\label{fig:mci_logo}
 \end{figure}
 
+\begin{figure}[!hbt]
+	\centering
+	\begin{annotationimage}{width=\figwidth}{images/MCI_Logo.pdf}
+		\draw[annotation left = {Atlas at 0.3}] to (0.11,0.4);
+		\draw[annotation below = {Merope at 0.5}] to (0.58,0.28);
+		\draw[annotation right = {Electra at 0.3}] to (0.84,0.45);
+		\draw[annotation above = {Taygeta at 0.9}] to (0.78,0.82);
+		\draw[rectangle, draw=red, thick] (0.1,0.1) rectangle (0.9,0.9);
+	\end{annotationimage}
+	\caption[Beschriftungsbild]{Die Plejaden, ein offener Sternhaufen im Sternbild Stier. Für die Beschriftung wurde das Paket \texttt{tikz-imagelabels} verwendet. Dieser lange Text ist im Abbildungsverzeichnis nicht zu sehen.}
+	\label{fig:plejaden}
+\end{figure}
+
 
 \subsubsection{Tabellen}
-% Tipp: https://www.tablesgenerator.com/
 \begin{tabular}{lcr}
 	1 & 2 & 3 \\
 	4 & 5 & 6 \\
@@ -156,7 +168,7 @@ etc.
 			\begin{tabular}[c]{@{}l@{}}Prävention von Komplikationen,\\ Vermeidung von\\ Krankenhausaufenthalten\end{tabular} &
 			Alarmmüdigkeit durch Fehlalarme                                                                                   &
 			\begin{tabular}[c]{@{}l@{}}Objektive Bewegungsdaten,\\ schnellere Reaktionszeiten,\\ Entscheidungsunterstützung\end{tabular}    \\ \midrule
-			\textbf{\acf{rd}}                                                                                                  &
+			\textbf{\acf{rd}}                                                                                                 &
 			\begin{tabular}[c]{@{}l@{}}Schnelle und gezielte\\ Versorgung im Notfall\end{tabular}                             &
 			\begin{tabular}[c]{@{}l@{}}Fehlalarme,\\ unklare Ortsangaben bei\\ \acs{gps}-Problemen\end{tabular}               &
 			\begin{tabular}[c]{@{}l@{}}Frühe Alarmierung,\\ präzise Einsatzkoordination,\\ Zeitgewinn bei echten Notfällen\end{tabular}     \\ \midrule
@@ -486,6 +498,7 @@ Alternativ auch \autoref{equ:Pytagoras} auf \autopageref{equ:Pytagoras}.
 
 % Platz für Verzeichnisse
 \clearpage
+\pagestyle{plain}
 \pagenumbering{Roman}
 \setcounter{page}{\numexpr\value{RomanPagenumber}}
 \listoffigures
