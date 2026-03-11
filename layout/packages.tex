@@ -16,10 +16,6 @@
 \usepackage{graphicx}
 \pdfminorversion=7
 
-% use consistent style for units (upright shape)
-% \unit[value]{unit}, \unitfrac[value]{unit_numerator}{unit_denominator}
-\usepackage{units}
-
 % tables
 \usepackage{array}
 \renewcommand{\arraystretch}{1.3}
@@ -64,9 +60,9 @@
 \captionsetup{belowskip=12pt,aboveskip=4pt}
 \usepackage{subcaption} % group multiple figures together
 
-\usepackage{microtype}
 \usepackage{placeins}
 \DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}
+\usepackage[final, nopatch=footnote]{microtype}
 
 % page numbers
 \usepackage{tocbasic}
@@ -75,3 +71,27 @@
 \DeclareTOCStyleEntry[pagenumberwidth=2em]{tocline}{subsection}
 \DeclareTOCStyleEntry[pagenumberwidth=2em]{tocline}{figure}
 \DeclareTOCStyleEntry[pagenumberwidth=2em]{tocline}{table}
+
+%---my Packages-------------------------------------------------------------
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage[shortlabels]{enumitem}              % um bessere Aufzählungen zu erstellen
+\usepackage{tikz-imagelabels}                   % um Bilder einfach zu beschriften
+\usepackage{siunitx}
+    \sisetup{reset-math-version = false}            % um \boldmath in siunitx zu verwenden
+    \sisetup{separate-uncertainty = true}           % Unsicherheiten werden mit einem Leerzeichen getrennt
+    \sisetup{per-mode = fraction}                   % Bruchstrich oder Hochzahl
+    % Hier Einheiten definieren
+    \DeclareSIUnit\seppi{sp}                        % Beispiel für eine neue Einheit
+\usepackage[style=ieee]{biblatex}               % um Literaturverzeichnisse zu erstellen
+\addbibresource{bibliography/references.bib}
+\usepackage{longtable}
+\usepackage{acro}                               % um Abkürzungen zu verwalten
+\acsetup{
+    pages/display=all,
+    %single=true,
+    single-style=short,
+    make-links=true
+}
+
+\input{layout/abbreviationsAndSymbols.tex}

@@ -23,7 +23,9 @@
 \input{layout/packages.tex}
 
 \begin{document}
-\pagenumbering{roman}
+\pagenumbering{Roman}
+\setcounter{page}{\numexpr\value{page}} % im Leitfaden Inhaltsverzeichnis beginnt mit 2
+
 \input{layout/titlepage.tex}
 
 % Non disclosure agreement - only if applicable
@@ -47,9 +49,18 @@
 \listoftables
 
 % abbreviations and symbols (optional)
-\input{chapters/abbreviations.tex}
-
+\printacronyms[name=Abkürzungen, heading=chapter*, exclude=symbol]
+\addcontentsline{toc}{chapter}{Abkürzungen}
 \clearpage
+
+% TODO: fix this
+%\printacronyms[name=Formelsymbole, heading=chapter*, include=symbol, template=symbtab]
+%\addcontentsline{toc}{chapter}{Formelsymbole}
+%\clearpage
+
+\newpage
+\newcounter{RomanPagenumber}  % Zähler für die Seitenzahl des Inhaltsverzeichnisses
+\setcounter{RomanPagenumber}{\value{page}}
 \pagenumbering{arabic}
 
 \input{chapters/chapter1.tex}
@@ -58,9 +69,15 @@
 \input{chapters/chapter4.tex}
 \input{chapters/chapter5.tex}
 
+
+\clearpage
+\pagenumbering{Roman}
+\setcounter{page}{\numexpr\value{RomanPagenumber}}
+
 %References
-\bibliography{bibliography/references.bib}
+\printbibliography
 \label{ch:bib}
+\clearpage
 
 % Appendix
 \appendix
