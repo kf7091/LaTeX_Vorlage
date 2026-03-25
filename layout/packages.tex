@@ -1,7 +1,8 @@
+% LTeX: enabled=false
 % language
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[naustrian]{babel}
+\usepackage[main=naustrian,english,latin]{babel}
 
 
 % math commands
@@ -78,14 +79,16 @@
 \usepackage[shortlabels]{enumitem}              % um bessere Aufzählungen zu erstellen
 \usepackage{tikz-imagelabels}                   % um Bilder einfach zu beschriften
 \usepackage{siunitx}
-    \sisetup{reset-math-version = false}            % um \boldmath in siunitx zu verwenden
-    \sisetup{separate-uncertainty = true}           % Unsicherheiten werden mit einem Leerzeichen getrennt
-    \sisetup{per-mode = fraction}                   % Bruchstrich oder Hochzahl
-    % Hier Einheiten definieren
-    \DeclareSIUnit\seppi{sp}                        % Beispiel für eine neue Einheit
+\sisetup{reset-math-version = false}            % um \boldmath in siunitx zu verwenden
+\sisetup{separate-uncertainty = true}           % Unsicherheiten werden mit einem Leerzeichen getrennt
+\sisetup{per-mode = fraction}                   % Bruchstrich oder Hochzahl
+% Hier Einheiten definieren
+\DeclareSIUnit\seppi{sp}                        % Beispiel für eine neue Einheit
 \usepackage[style=ieee]{biblatex}               % um Literaturverzeichnisse zu erstellen
 \addbibresource{bibliography/references.bib}
 \usepackage{longtable}
+\usepackage[defaultlines=4,all]{nowidow}        % Verhindert, dass die letzte Zeile eines Absatzes allein auf einer Seite steht
+\usepackage{needspace}
 \usepackage{acro}                               % um Abkürzungen zu verwalten
 \acsetup{
     pages/display=all,
@@ -93,5 +96,24 @@
     single-style=short,
     make-links=true
 }
-
+\NewAcroTemplate[list]{symtab}{%
+    \AcroNeedPackage{array}%
+    \acronymsmapF{%
+        \AcroAddRow{%
+            \acrowrite{short}&% <-- Das % verhindert den Zeilensprung
+            \acrowrite{extra}&%
+            \acrowrite{list}\tabularnewline%
+        }%
+    }%
+    {\AcroRerun}%
+    \acroheading
+    \acropreamble
+    \noindent
+    \begin{tabular}{m{0.15\linewidth} m{0.15\linewidth} m{0.6\linewidth}}
+        \hline
+        Symbol & Einheit & Beschreibung \\ \hline
+        \AcronymTable
+        \hline
+    \end{tabular}
+}
 \input{layout/abbreviationsAndSymbols.tex}
