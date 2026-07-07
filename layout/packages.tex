@@ -96,6 +96,35 @@
     single-style=short,
     make-links=true
 }
+
+% Grammatikalische Fälle für Abkürzungen (Genitiv, Dativ, Akkusativ).
+% Standardmäßig wird im Genitiv ein "s" angehängt (z. B. "des \acs*{pcb}s"),
+% Dativ und Akkusativ bleiben unverändert - das deckt die Standardfälle ab,
+% ohne dass pro Abkürzung etwas deklariert werden muss. Passt der Standard
+% für eine bestimmte Abkürzung nicht, kann er wie bei "plural" gezielt
+% überschrieben werden, z.B.:
+%   \DeclareAcronym{key}{..., genitive = {}, }                 % kein Suffix
+%   \DeclareAcronym{key}{..., short-dative-form = Sonderform, } % eigene Form
+\DeclareAcroEnding{genitive}{s}{s}
+\DeclareAcroEnding{dative}{}{}
+\DeclareAcroEnding{accusative}{}{}
+
+% Befehle analog zu \ac/\acs/\Ac/\Acs, jeweils mit angehängtem Fall:
+\NewAcroCommand \acgen   {m}{ \acrogenitive    \UseAcroTemplate {first} {#1} }
+\NewAcroCommand \Acgen   {m}{ \acrogenitive    \acroupper \UseAcroTemplate {first} {#1} }
+\NewAcroCommand \acsgen  {m}{ \acrogenitive    \UseAcroTemplate {short} {#1} }
+\NewAcroCommand \Acsgen  {m}{ \acrogenitive    \acroupper \UseAcroTemplate {short} {#1} }
+
+\NewAcroCommand \acdat   {m}{ \acrodative      \UseAcroTemplate {first} {#1} }
+\NewAcroCommand \Acdat   {m}{ \acrodative      \acroupper \UseAcroTemplate {first} {#1} }
+\NewAcroCommand \acsdat  {m}{ \acrodative      \UseAcroTemplate {short} {#1} }
+\NewAcroCommand \Acsdat  {m}{ \acrodative      \acroupper \UseAcroTemplate {short} {#1} }
+
+\NewAcroCommand \acakk  {m}{ \acroaccusative  \UseAcroTemplate {first} {#1} }
+\NewAcroCommand \Acakk  {m}{ \acroaccusative  \acroupper \UseAcroTemplate {first} {#1} }
+\NewAcroCommand \acsakk {m}{ \acroaccusative  \UseAcroTemplate {short} {#1} }
+\NewAcroCommand \Acsakk {m}{ \acroaccusative  \acroupper \UseAcroTemplate {short} {#1} }
+
 \NewAcroTemplate[list]{symtab}{%
     \AcroNeedPackage{array}%
     \acronymsmapF{%

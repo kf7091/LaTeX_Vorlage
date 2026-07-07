@@ -49,6 +49,36 @@ Abkürzungen sind im Paket \texttt{acro} in der Datei \texttt{abbreviationsAndSy
 Die definition der Größenzeichen und Einheiten erfolgt ebenfalls in \texttt{abbreviationsAndSymbols.tex} und kann mit dem Befehl \texttt{$\backslash$ac} im Text verwendet werden. Die korrekte darstellung von Einheiten erfolgt mit dem Paket \texttt{siunitx}.
 Abkürzungen sowie Größenzeichen und Einheiten werden im Inhaltsverzeichnis unter den Kapiteln "Abkürzungen" bzw. "Formelsymbole" automatisch nach verwendung aufgeführt. Es ist wichtig, dass die Abkürzungen und Symbole in der Datei \texttt{abbreviationsAndSymbols.tex} sorgfältig definiert werden, damit sie korrekt im Text und in den Verzeichnissen dargestellt werden (siehe Beispiele in der Datei).
 
+\subsection{Grammatikalische Fälle und Plural}
+Neben \texttt{$\backslash$ac} und \texttt{$\backslash$acs} stehen in \texttt{layout/packages.tex} zusätzliche Befehle für Genitiv, Dativ, Akkusativ sowie den Plural zur Verfügung. \autoref{tab:acro-cases} testet alle diese Befehle anhand der Abkürzung \acreset{pcb}\ac{pcb}. Die Befehle \texttt{$\backslash$acg}, \texttt{$\backslash$acd}, \texttt{$\backslash$acak} und \texttt{$\backslash$acp} verhalten sich wie \texttt{$\backslash$ac} und zeigen je nach Kontext die Lang- oder die Kurzform mit angehängter Endung; die Befehle \texttt{$\backslash$acsg}, \texttt{$\backslash$acsd}, \texttt{$\backslash$acsak} und \texttt{$\backslash$acsp} verhalten sich wie \texttt{$\backslash$acs} und liefern unabhängig vom Kontext immer nur die Kurzform mit angehängter Endung. Auf grammatikalische Richtigkeit der dadurch entstehenden Beispiele wurde bewusst nicht geachtet.
+
+\begin{table}[ht]
+	\centering
+	\caption[Testfälle Abkürzungsbefehle]{Testfälle aller Fall- und Pluralbefehle für Abkürzungen}\label{tab:acro-cases}
+	\begin{tabular}{ll}
+		\hline
+		Befehl & Ausgabe \\\hline
+		\texttt{$\backslash$ac\{pcb\}}       & \acreset{pcb}\ac{pcb} \\\hline
+		\texttt{$\backslash$acgen\{pcb\}}      & \acgen{pcb} \\
+		\texttt{$\backslash$Acgen\{pcb\}}      & \Acgen{pcb} \\
+		\texttt{$\backslash$acdat\{pcb\}}      & \acdat{pcb} \\
+		\texttt{$\backslash$Acdat\{pcb\}}      & \Acdat{pcb} \\
+		\texttt{$\backslash$acakk\{pcb\}}     & \acakk{pcb} \\
+		\texttt{$\backslash$Acakk\{pcb\}}     & \Acakk{pcb} \\
+		\texttt{$\backslash$acp\{pcb\}}      & \acp{pcb} \\
+		\texttt{$\backslash$Acp\{pcb\}}      & \Acp{pcb} \\\hline
+		\texttt{$\backslash$acs\{pcb\}}      & \acs{pcb} \\
+		\texttt{$\backslash$acsg\{pcb\}}     & \acsgen{pcb} \\
+		\texttt{$\backslash$Acsg\{pcb\}}     & \Acsgen{pcb} \\
+		\texttt{$\backslash$acsd\{pcb\}}     & \acsdat{pcb} \\
+		\texttt{$\backslash$Acsd\{pcb\}}     & \Acsdat{pcb} \\
+		\texttt{$\backslash$acsakk\{pcb\}}    & \acsakk{pcb} \\
+		\texttt{$\backslash$Acsakk\{pcb\}}    & \Acsakk{pcb} \\
+		\texttt{$\backslash$acsp\{pcb\}}     & \acsp{pcb} \\\hline
+	\end{tabular}
+\end{table}
+\acreset{pcb} % Abkürzung nach den Testfällen wieder zurücksetzen
+
 \section{Weitere Informationen}
 Für weiterführende Informationen zu \LaTeX, etwa zu Befehlen für mathematische Symbole oder Konventionen beim Querverweisen, konsultieren Sie die Dokumentationen unter \url{https://en.wikibooks.org/wiki/LaTeX} und \url{https://overleaf.com/learn}. Die meisten Fragen zu speziellen Formatierungen in \LaTeX\ wurden zudem in einem der zahlreichen \LaTeX-Foren online bereits beantwortet.
 ```
